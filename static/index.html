@@ -8,16 +8,26 @@
   <title>Workout Tracking</title>
   <!-- inject:css -->
   <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="components/ng-table/dist/ng-table.min.css" rel="stylesheet">
   <!-- endinject -->
 </head>
 <body>
   <div ng-controller="WorkoutCtrl as vm">
-  	{{vm.test}}
+  	<table ng-table="vm.tableParams" class="table table-condensed table-bordered table-striped">
+      <tr ng-repeat="row in $data">
+        <td data-title="'Exercise'" filter="{exercise: 'text'}" sortable="'exercise'">{{row.exercise}}</td>
+        <td data-title="'Weight'" filter="{weight: 'number'}" sortable="'weight'">{{row.weight}} lb</td>
+        <td data-title="'Sets'" filter="{sets: 'number'}" sortable="'sets'">{{row.sets}}</td>
+        <td data-title="'Reps'" filter="{reps: 'number'}" sortable="'reps'">{{row.reps}}</td>
+        <td data-title="'Comments'" filter="{comments: 'text'}" sortable="'comments'">{{row.comments}}</td>
+      </tr>
+    </table>
   </div>
   <!-- inject:js -->
   <script src="components/angular/angular.js"></script>
   <script src="components/jquery/dist/jquery.js"></script>
   <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="components/ng-table/dist/ng-table.js"></script>
   <script src="js/workout/workout.module.js"></script>
   <script src="js/workout/workout.controller.js"></script>
   <script src="js/app.js"></script>
