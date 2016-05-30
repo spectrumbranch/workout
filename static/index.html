@@ -13,7 +13,7 @@
 </head>
 <body>
   <div ng-controller="WorkoutCtrl as vm">
-    <table ng-table="vm.tableParams" class="table table-condensed table-bordered table-striped">
+    <table ng-table="vm.tableParams" class="table table-condensed table-bordered table-striped" show-filter="true">
       <tr ng-repeat="row in $data">
         <td data-title="'Actions'"><a href ng-click="vm.editExercise(row.id)"><span class="glyphicon glyphicon-pencil"></span></a><a href ng-click="vm.deleteExercise(row.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
         <td data-title="'Exercise'" filter="{exercise: 'text'}" sortable="'exercise'">{{row.exercise}}</td>
