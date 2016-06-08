@@ -3,6 +3,11 @@
 
 	function WorkoutCtrl(NgTableParams) {
 		var vm = this;
+		vm.exercise = '';
+		vm.weight = '';
+		vm.sets = '';
+		vm.reps = '';
+		vm.comments = '';
 
 
 		vm.data = [
@@ -15,10 +20,15 @@
 
 		vm.tableParams = new NgTableParams({
 			// initial sort order
-			sorting: { name: "asc" }
+			sorting: { id: "desc" }
 		}, {
 			data: vm.data 
 		});
+
+		vm.addExercise = function() {
+			vm.data.push({ id: vm.data.length+1, exercise: vm.exercise, weight: vm.weight, sets: vm.sets, reps: vm.reps, comments: vm.comments });
+			vm.tableParams.reload();
+		}
 
 		vm.editExercise = function(id) {
 			console.log('TODO edit exercise: ', id);

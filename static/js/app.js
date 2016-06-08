@@ -6,7 +6,7 @@ angular.module('app', ['ngTable', 'app.modules'
 	//	$urlRouterProvider.otherwise('/');
 	//}])
 	.run(function(ngTableDefaults) {
-		ngTableDefaults.params.count = 5;
+		ngTableDefaults.params.count = 10;
     	ngTableDefaults.settings.counts = [];
 	})
 ;
