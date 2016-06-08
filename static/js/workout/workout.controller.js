@@ -3,8 +3,10 @@
 
 	function WorkoutCtrl(NgTableParams) {
 		var vm = this;
-		vm.clearInputForm();
 
+		vm.load = function() {
+			vm.clearInputForm();
+		}
 
 		vm.data = [
 			{ id: 1, exercise: 'dumbbell curl', weight: 25, sets: 3, reps: 8, comments: 'left arm weaker' },
@@ -41,6 +43,11 @@
 		vm.deleteExercise = function(id) {
 			console.log('TODO delete exercise: ', id);
 		}
+
+		
+
+		//
+		vm.load();
 	};
 
 	angular.module('workout')
