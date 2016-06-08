@@ -3,11 +3,7 @@
 
 	function WorkoutCtrl(NgTableParams) {
 		var vm = this;
-		vm.exercise = '';
-		vm.weight = '';
-		vm.sets = '';
-		vm.reps = '';
-		vm.comments = '';
+		vm.clearInputForm();
 
 
 		vm.data = [
@@ -27,7 +23,16 @@
 
 		vm.addExercise = function() {
 			vm.data.push({ id: vm.data.length+1, exercise: vm.exercise, weight: vm.weight, sets: vm.sets, reps: vm.reps, comments: vm.comments });
+			vm.clearInputForm();
 			vm.tableParams.reload();
+		}
+
+		vm.clearInputForm = function() {
+			vm.exercise = '';
+			vm.weight = '';
+			vm.sets = '';
+			vm.reps = '';
+			vm.comments = '';
 		}
 
 		vm.editExercise = function(id) {
